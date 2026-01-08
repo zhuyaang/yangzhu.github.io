@@ -261,3 +261,7 @@ a.sidebar-nav-item:focus {
     margin-bottom: 10px !important; /* 缩减下方间距 */
   }
 }
+.post {
+  padding-right: 5%;
+  padding-left: 5%;
+}
