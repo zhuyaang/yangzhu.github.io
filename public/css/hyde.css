@@ -248,3 +248,9 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
+/* 当屏幕宽度小于 768 像素（手机端）时执行 */
+@media (max-width: 48rem) {
+  .sidebar-avatar {
+    display: none !important;
+  }
+}
