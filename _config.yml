@@ -10,8 +10,9 @@ paginate: 5
 
 # 这一行很重要，告诉 GitHub 即使没有 Gemfile 也要尝试构建
 build_settings:
-  theme: jekyll-theme-primer
+
 
 # 插件设置（通常 Hyde 模板需要这个）
 plugins:
   - jekyll-paginate
+  - jekyll-gist
