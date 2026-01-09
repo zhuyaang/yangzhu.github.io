@@ -1,64 +1,42 @@
 /*
- *  __                  __
- * /\ \                /\ \
+ * __           __
+ * /\ \         /\ \
  * \ \ \___   __  __   \_\ \     __
- *  \ \  _ `\/\ \/\ \  /'_` \  /'__`\
- *   \ \ \ \ \ \ \_\ \/\ \_\ \/\  __/
- *    \ \_\ \_\/`____ \ \___,_\ \____\
- *     \/_/\/_/`/___/> \/__,_ /\/____/
- *                /\___/
- *                \/__/
+ * \ \  _ `\/\ \/\ \  /'_` \  /'__`\
+ * \ \ \ \ \ \ \_\ \/\ \_\ \/\  __/
+ * \ \_\ \_\/`____ \ \___,_\ \____\
+ * \/_/\/_/`/___/> \/__,_ /\/____/
+ * /\___/
+ * \/__/
  *
- * Designed, built, and released under MIT license by @mdo. Learn more at
- * https://github.com/poole/hyde.
+ * Designed, built, and released under MIT license by @mdo.
+ * Optimized for Yang Zhu's Personal Website.
  */
-
-
-/*
- * Contents
- *
- * Global resets
- * Sidebar
- * Container
- * Reverse layout
- * Themes
- */
-
 
 /*
  * Global resets
- *
- * Update the foundational and global aspects of the page.
  */
 
 html {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
 @media (min-width: 48em) {
-  html {
-    font-size: 16px;
-  }
+  html { font-size: 16px; }
 }
 @media (min-width: 58em) {
-  html {
-    font-size: 20px;
-  }
+  html { font-size: 20px; }
 }
 
-
 /*
- * Sidebar
- *
- * Flexible banner for housing site name, intro, and "footer" content. Starts
- * out above content in mobile and later moves to the side with wider viewports.
+ * Sidebar (侧边栏核心样式)
  */
-
 .sidebar {
   text-align: center;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
-  background-color: #202020;
+  background-color: #202020; /* 默认黑色背景 */
 }
+
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
@@ -75,28 +53,39 @@ html {
   color: #fff;
 }
 
-/* About section */
-.sidebar-about h1 {
-  color: #fff;
-  margin-top: 0;
-  
-  /* 关键修改：使用 PT Serif 衬线字体，优雅且学术 */
-  font-family: "PT Serif", Georgia, "Times New Roman", serif;
-  
-  font-weight: 700; /* 加粗，但不会像之前那个那么“肥” */
-  font-size: 2.6rem; /* 字号适中 */
-  line-height: 1.2;
-}
-
+/* * Sidebar About (头像、名字、简介区域) 
+ */
 .sidebar-about {
   text-align: center;
 }
 
+/* 名字：Yang Zhu */
+.sidebar-about h1 {
+  color: #fff;
+  margin-top: 0;
+  /* 使用 PT Serif 衬线字体，优雅且学术 */
+  font-family: "PT Serif", Georgia, "Times New Roman", serif;
+  font-weight: 700; 
+  font-size: 2.6rem;
+  line-height: 1.2;
+}
+
+/* 简介：Master Student... */
+.sidebar-about .lead {
+  /* 强制使用无衬线体，与名字形成对比 */
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+/* 社交图标居中 */
 .sidebar-social {
   text-align: center;
 }
 
-/* Sidebar nav */
+/* Sidebar nav (导航菜单) */
 .sidebar-nav {
   margin-bottom: 1rem;
 }
@@ -112,12 +101,7 @@ a.sidebar-nav-item:focus {
   font-weight: bold;
 }
 
-/* Sticky sidebar
- *
- * Add the `sidebar-sticky` class to the sidebar's container to affix it the
- * contents to the bottom of the sidebar in tablets and up.
- */
-
+/* Sticky sidebar (平板以上固定底部) */
 @media (min-width: 48em) {
   .sidebar-sticky {
     position: absolute;
@@ -127,11 +111,8 @@ a.sidebar-nav-item:focus {
   }
 }
 
-
-/* Container
- *
- * Align the contents of the site above the proper threshold with some margin-fu
- * with a 25%-wide `.sidebar`.
+/*
+ * Container (正文内容区域)
  */
 
 .content {
@@ -139,11 +120,25 @@ a.sidebar-nav-item:focus {
   padding-bottom: 4rem;
 }
 
+/* 针对正文的强制对齐修正 */
+.content h1, 
+.post-title,
+.page-title,
+.content > .post,
+.content > .posts,
+.content > *:first-child,
+.post > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* 响应式布局：控制正文宽度和边距 */
 @media (min-width: 48em) {
   .content {
     max-width: 38rem;
     margin-left: 20rem;
     margin-right: 2rem;
+    padding-top: 4rem !important; /* 保持顶部高度一致 */
   }
 }
 
@@ -152,154 +147,4 @@ a.sidebar-nav-item:focus {
     margin-left: 22rem;
     margin-right: 4rem;
   }
-}
-
-
-/*
- * Reverse layout
- *
- * Flip the orientation of the page by placing the `.sidebar` on the right.
- */
-
-@media (min-width: 48em) {
-  .layout-reverse .sidebar {
-    left: auto;
-    right: 0;
-  }
-  .layout-reverse .content {
-    margin-left: 2rem;
-    margin-right: 20rem;
-  }
-}
-
-@media (min-width: 64em) {
-  .layout-reverse .content {
-    margin-left: 4rem;
-    margin-right: 22rem;
-  }
-}
-
-
-
-/*
- * Themes
- *
- * As of v1.1, Hyde includes optional themes to color the sidebar and links
- * within blog posts. To use, add the class of your choosing to the `body`.
- */
-
-/* Base16 (http://chriskempson.github.io/base16/#default) */
-
-/* Red */
-.theme-base-08 .sidebar {
-  background-color: #ac4142;
-}
-.theme-base-08 .content a,
-.theme-base-08 .related-posts li a:hover {
-  color: #ac4142;
-}
-
-/* Orange */
-.theme-base-09 .sidebar {
-  background-color: #d28445;
-}
-.theme-base-09 .content a,
-.theme-base-09 .related-posts li a:hover {
-  color: #d28445;
-}
-
-/* Yellow */
-.theme-base-0a .sidebar {
-  background-color: #f4bf75;
-}
-.theme-base-0a .content a,
-.theme-base-0a .related-posts li a:hover {
-  color: #f4bf75;
-}
-
-/* Green */
-.theme-base-0b .sidebar {
-  background-color: #90a959;
-}
-.theme-base-0b .content a,
-.theme-base-0b .related-posts li a:hover {
-  color: #90a959;
-}
-
-/* Cyan */
-.theme-base-0c .sidebar {
-  background-color: #75b5aa;
-}
-.theme-base-0c .content a,
-.theme-base-0c .related-posts li a:hover {
-  color: #75b5aa;
-}
-
-/* Blue */
-.theme-base-0d .sidebar {
-  background-color: #6a9fb5;
-}
-.theme-base-0d .content a,
-.theme-base-0d .related-posts li a:hover {
-  color: #6a9fb5;
-}
-
-/* Magenta */
-.theme-base-0e .sidebar {
-  background-color: #aa759f;
-}
-.theme-base-0e .content a,
-.theme-base-0e .related-posts li a:hover {
-  color: #aa759f;
-}
-
-/* Brown */
-.theme-base-0f .sidebar {
-  background-color: #8f5536;
-}
-.theme-base-0f .content a,
-.theme-base-0f .related-posts li a:hover {
-  color: #8f5536;
-}
-/* =========================================
-   终极对齐补丁：修复不同页面标题高度不一致问题
-   ========================================= */
-
-/* 1. 统一正文区域的内边距 */
-@media (min-width: 48em) {
-  .content {
-    padding-top: 4rem !important; /* 强制所有页面内容距离顶部都是 4rem */
-  }
-}
-
-/* 2. 强制消除所有大标题的默认上边距 */
-.content h1, 
-.post-title,
-.page-title {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* 3. 针对某些特殊情况（比如内容包在 .post 容器里），确保容器本身也没有上边距 */
-.content > .post,
-.content > .posts {
-  margin-top: 0 !important;
-}
-
-/* 4. 确保正文里的第一个元素永远贴顶 */
-.content > *:first-child,
-.post > *:first-child {
-  margin-top: 0 !important;
-}
-/* =========================================
-   字体微调：名字衬线，描述无衬线
-   ========================================= */
-
-/* 强制 "Master Student..." 这行字使用无衬线体 */
-.sidebar-about .lead {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif !important;
-  font-weight: 500;  /* 正常粗细，不要加粗 */
-  font-size: 1.5rem;   /* 字号稍微调小一点点，更精致 */
-  line-height: 1.5;
-  margin-top: 0.5rem;
 }
