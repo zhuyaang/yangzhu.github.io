@@ -88,9 +88,10 @@ html {
 /* Sidebar nav (导航菜单) */
 .sidebar-nav {
   margin-bottom: 1rem;
+  text-align: center; /* 添加这行，将导航项文本居中 */
 }
 .sidebar-nav-item {
-  display: block;
+  display: block; /* 确保每个导航项独立一行 */
   line-height: 1.75;
 }
 a.sidebar-nav-item:hover,
