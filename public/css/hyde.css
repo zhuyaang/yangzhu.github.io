@@ -261,3 +261,33 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
+/* =========================================
+   终极对齐补丁：修复不同页面标题高度不一致问题
+   ========================================= */
+
+/* 1. 统一正文区域的内边距 */
+@media (min-width: 48em) {
+  .content {
+    padding-top: 4rem !important; /* 强制所有页面内容距离顶部都是 4rem */
+  }
+}
+
+/* 2. 强制消除所有大标题的默认上边距 */
+.content h1, 
+.post-title,
+.page-title {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* 3. 针对某些特殊情况（比如内容包在 .post 容器里），确保容器本身也没有上边距 */
+.content > .post,
+.content > .posts {
+  margin-top: 0 !important;
+}
+
+/* 4. 确保正文里的第一个元素永远贴顶 */
+.content > *:first-child,
+.post > *:first-child {
+  margin-top: 0 !important;
+}
