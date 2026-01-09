@@ -291,3 +291,15 @@ a.sidebar-nav-item:focus {
 .post > *:first-child {
   margin-top: 0 !important;
 }
+/* =========================================
+   字体微调：名字衬线，描述无衬线
+   ========================================= */
+
+/* 强制 "Master Student..." 这行字使用无衬线体 */
+.sidebar-about .lead {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif !important;
+  font-weight: 400;  /* 正常粗细，不要加粗 */
+  font-size: 1rem;   /* 字号稍微调小一点点，更精致 */
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
