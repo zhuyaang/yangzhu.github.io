@@ -4,7 +4,7 @@ title: Publications
 ---
 
 <div class="post">
-  <h1 class="post-title" style="font-family: 'PT Sans', sans-serif !important; font-weight: 700; letter-spacing: -1px; margin-bottom: 2rem;">
+  <h1 class="post-title" style="font-weight: 700; margin-bottom: 2rem;">
     Publications
   </h1>
   
